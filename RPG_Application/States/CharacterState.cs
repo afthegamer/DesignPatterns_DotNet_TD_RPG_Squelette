@@ -17,7 +17,7 @@ namespace RPGCombatSimulator.States
         }
 
         public abstract void TakeDamage(int damage);
-        public abstract int GetAttackModifier();
+        public abstract double GetAttackModifier();
         public abstract bool CanAttack();
         public abstract string GetStateDescription();
     }
