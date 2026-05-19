@@ -8,7 +8,7 @@ namespace RPGCombatSimulator.Strategies
 {
     public interface IAttackStrategy
     {
-        int CalculateDamage(int baseDamage);
+        double CalculateDamage(int baseDamage);
         string GetAttackDescription();
     }
 }
