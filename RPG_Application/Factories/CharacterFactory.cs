@@ -9,6 +9,6 @@ namespace RPGCombatSimulator.Factories
 {
     public abstract class CharacterFactory
     {
-        public abstract Character CreateCharacter(string name);
+        public abstract Character CreateCharacter(string name, int maxHealth, int baseDamage, string type);
     }
 }

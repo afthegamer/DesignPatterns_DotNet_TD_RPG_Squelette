@@ -18,7 +18,7 @@ namespace RPGCombatSimulator.Characters
         private IAttackStrategy _attackStrategy;
         private CharacterState _state;
 
-        public Character(string name, int maxHealth, int baseDamage, IAttackStrategy attackStrategy)
+        public Character(string name, int maxHealth, int baseDamage, IAttackStrategy attackStrategy, CharacterState initialState = null)
         {
             Name = name;
             MaxHealth = maxHealth;
@@ -52,11 +52,17 @@ namespace RPGCombatSimulator.Characters
             Console.WriteLine($"{Name} takes {damage} damage. Health: {Health}/{MaxHealth} ({_state.GetStateDescription()})");
         }
 
-        public bool IsAlive() => _state.CanAttack();
+        public bool IsAlive() => _state.IsAlive();
 
         public string GetStatus()
         {
             return $"{Name} - HP: {Health}/{MaxHealth} - State: {_state.GetStateDescription()}";
+        }
+
+        public void ChangeState(CharacterState newState)
+        {
+            _state = newState;
+            Console.WriteLine($"{Name} changes state to {_state.GetStateDescription()}");
         }
     }
 }

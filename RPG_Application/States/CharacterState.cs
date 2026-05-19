@@ -20,5 +20,6 @@ namespace RPGCombatSimulator.States
         public abstract double GetAttackModifier();
         public abstract bool CanAttack();
         public abstract string GetStateDescription();
+        public virtual bool IsAlive() => true;
     }
 }

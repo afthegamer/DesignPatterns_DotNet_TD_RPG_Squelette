@@ -4,15 +4,27 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=== RPG Combat Simulator ===\n");
+            Console.WriteLine("Welcome to the RPG Combat Simulator!");
 
-            // TODO: Create character factories
+            var hero = new Characters.Character("Arthas", 100, 20, new Strategies.MeleeAttackStrategy());
+            var villain = new Characters.Character("Diablo", 120, 25, new Strategies.MagicAttackStrategy());
 
-            // TODO: Create two characters using factories
+            Console.WriteLine(hero.GetStatus());
+            Console.WriteLine(villain.GetStatus());
 
-            // TODO: Simulate combat until one dies
+            while (hero.IsAlive() && villain.IsAlive())
+            {
+                hero.Attack(villain);
+                Console.WriteLine(villain.GetStatus());
 
-            Console.WriteLine("\n=== Combat Finished ===");
+                if (villain.IsAlive())
+                {
+                    villain.Attack(hero);
+                    Console.WriteLine(hero.GetStatus());
+                }
+            }
+
+            Console.WriteLine("Combat has ended!");
         }
     }
 }
